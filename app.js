@@ -1,5 +1,15 @@
-function app() {
-  return <div>app</div>;
-}
+const express = require("express");
+const app = express();
+app.use(express.json());
+const budgetingController = require("./controllers/budgetingController");
 
-export default app;
+app.get("/", (req, res) => {
+  res.send("welcome to Budgeting app");
+});
+
+app.use("/transactions", budgetingController);
+
+app.use("*", (req, res) => {
+  res.status(404).json({ message: "page not found" });
+});
+module.exports = app;

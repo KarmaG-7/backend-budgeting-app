@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
+    "uuid": "^9.0.0"
+  },
+  "name": "backend-budgeting-app",
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KarmaG-7/backend-budgeting-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KarmaG-7/backend-budgeting-app/issues"
+  },
+  "homepage": "https://github.com/KarmaG-7/backend-budgeting-app#readme",
+  "description": ""
+}
