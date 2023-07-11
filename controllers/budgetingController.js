@@ -5,14 +5,15 @@ const { v4: uuidv4 } = require("uuid");
 let budgetingArray = require("../Models/budgetingModel");
 
 function isValueValid(req, res, next) {
-  let { item_name, amount, date, from, category } = req.body;
-
+  let { item_name, amount, date, from, category, type } = req.body;
+  amount = Number(amount);
   const status =
     typeof item_name === "string" &&
     typeof date === "string" &&
     typeof from === "string" &&
     typeof category === "string" &&
-    typeof amount === "number";
+    typeof amount === "number" &&
+    typeof type === "string";
 
   if (!status) {
     res.send("Error! Wrong datatype entered.");
@@ -27,8 +28,8 @@ router.get("/", (req, res) => {
 
 router.get("/:id", (req, res) => {
   const { id } = req.params;
-  const foundTransaction = budgetingArray.filter((item) => item.id === id);
-  if (foundTransaction.length > 0) {
+  const foundTransaction = budgetingArray.find((item) => item.id === id);
+  if (foundTransaction) {
     res.json(foundTransaction);
   } else {
     res.redirect("/*");
@@ -55,7 +56,7 @@ router.post("/", isValueValid, (req, res) => {
   res.json(budgetingArray);
 });
 
-router.put("/:id", isValueValid, (req, res) => {
+router.put("/:id/edit", isValueValid, (req, res) => {
   const { id } = req.params;
   const transactionIndex = budgetingArray.findIndex((item) => item.id === id);
   if (transactionIndex !== -1) {

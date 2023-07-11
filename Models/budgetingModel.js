@@ -3,19 +3,21 @@ const { v4: uuidv4 } = require("uuid");
 module.exports = [
   {
     id: uuidv4(),
-    item_name: "income",
+    item_name: "Salary",
     amount: 1000,
     date: "06/12/2023",
-    from: "employer",
+    from: "Employer",
     category: "income",
+    type: "Income",
   },
   {
     id: uuidv4(),
     item_name: "Dog food",
     amount: 30,
     date: "06/15/2023",
-    from: "pet store",
+    from: "Pet store",
     category: "pets",
+    type: "Expenses",
   },
   {
     id: uuidv4(),
@@ -23,7 +25,8 @@ module.exports = [
     amount: 20,
     date: "06/22/2023",
     from: "grocery store",
-    category: "food",
+    category: "grocery",
+    type: "Expenses",
   },
   {
     id: uuidv4(),
@@ -32,5 +35,6 @@ module.exports = [
     date: "06/29/2023",
     from: "apple store",
     category: "electronics",
+    type: "Expenses",
   },
 ];
